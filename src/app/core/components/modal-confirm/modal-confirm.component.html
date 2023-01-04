@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.mensajePrincipal}}</h1>
+<div mat-dialog-content>
+  <p>{{data.mensajeSecundario}}</p>
+</div>
+<div mat-dialog-actions class="align-right">
+  <button mat-button cdkFocusInitial (click)="terminar(false)" color="warn">Cancelar</button>
+  <button mat-button (click)="terminar(true)" color="accent">Confirmar</button>
+</div>

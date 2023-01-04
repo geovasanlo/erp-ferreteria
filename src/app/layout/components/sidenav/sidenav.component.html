@@ -1,0 +1,42 @@
+<div
+  *ngIf="elementosMenu"
+  class="material-container"
+  [class.material-is-mobile]="mobileQuery.matches">
+  <app-toolbar [sidenav]="sidenav"></app-toolbar>
+  <mat-sidenav-container
+    class="sidenav-container">
+    <mat-sidenav
+      #sidenav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <mat-accordion>
+          <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="material-icons">chrome_reader_mode</span> <span class="clasificador-menu">Catálogos</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item *ngFor="let elementoMenu of elementosMenu" [routerLink]="elementoMenu.enlace" routerLinkActive="is-active">
+              <span class="material-icons">{{elementoMenu.icono}}</span> <span class="elemento-menu">{{elementoMenu.nombre}}</span>
+            </a>
+          </mat-expansion-panel>
+          </mat-accordion>
+        <a mat-list-item (click)="cerrarSesion()">
+          <span class="material-icons">
+            power_settings_new
+          </span>
+          <span class="elemento-menu">Cerrar sesión</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="main-content">
+        <div class="router-outlet-container">
+          <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

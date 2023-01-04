@@ -1,0 +1,29 @@
+<div class="main-content">
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-md-12">
+        <mat-form-field class="buscador">
+          <input matInput placeholder="Buscar" #buscador value="{{data.parametros.nombre}}" (keyup.enter)="buscar(buscador.value)">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="cargandoDatos" >
+        <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+      </div>
+      <div class="col-md-12 contenedor-tabla">
+        <table class="table mat-table table-striped table-hover">
+          <tr>
+            <th>#</th>
+            <th *ngFor="let elemento of data.encabezados">{{elemento}}</th>
+          </tr>
+          <tr (dblclick)="elegir(elemento)" *ngFor="let elemento of resultados; index as i;" class="registro">
+            <td>{{i+1}}</td>
+            <td *ngFor="let propiedad of data.atributos">{{elemento[propiedad]}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

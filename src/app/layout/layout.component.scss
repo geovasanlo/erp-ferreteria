@@ -1,0 +1,52 @@
+.contenido{
+    padding-top: 10px;
+    min-height: 100%;
+    margin: 0 auto -40px;
+  }
+  
+  .push{
+    height: 50px;
+  }
+  
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-is-mobile {
+    position: absolute;
+    z-index: 2;
+  }
+  
+  h1.example-app-name {
+    margin-left: 8px;
+  }
+  
+  .sidenav-container {
+    flex: 1;
+  }
+  
+  .example-is-mobile .sidenav-container {
+    flex: 1 0 auto;
+  }
+  
+  .clasificador-menu{
+    height: 100%;
+    padding-left: 2px;
+    padding-top: 2%;
+  }
+  
+  .elemento-menu{
+    padding-left: 2px;
+  }
+  
+  .is-active {
+    background-color:#cecece;
+  }
+  
+  
