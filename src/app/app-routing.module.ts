@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { NotfoundComponent } from './layout/pages/notfound/notfound.component';
 import { PrincipalComponent } from './layout/pages/principal/principal.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
   {
     path: 'app',
     component: LayoutComponent,
-    canLoad: [],
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -42,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/app',
     pathMatch: 'full'
   },
   {
