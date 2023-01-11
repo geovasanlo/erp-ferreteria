@@ -1,9 +1,9 @@
 <button mat-button (click)="agregarProducto()">Agregar</button>
-<div class="p-20 d-flex gap-20">
-    
+<div class="p-20 d-flex gap-20 flex-wrap">
     <app-producto-card
         *ngFor="let producto of (productos$ | async)"
         [producto]="producto"
-        (eliminar)="clickEliminar($event)">
+        (eliminar)="clickEliminar($event)"
+        (editar)="clickEditar($event)">
     </app-producto-card>
 </div>

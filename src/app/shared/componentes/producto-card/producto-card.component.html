@@ -9,7 +9,7 @@
       <p>{{producto.descripcion}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Editar</button>
+      <button mat-button (click)="editarF()">Editar</button>
       <button mat-button>Ver mas</button>
       <button mat-icon-button (click)="eliminarF()">
         <mat-icon>delete</mat-icon>

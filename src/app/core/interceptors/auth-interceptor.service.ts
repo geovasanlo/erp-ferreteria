@@ -3,8 +3,6 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { NotificacionesService } from '../services/notificaciones.service';
-import { LoaderService } from '../services/loader.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +10,11 @@ import { LoaderService } from '../services/loader.service';
 export class AuthInterceptorService implements HttpInterceptor {
 
   constructor(
-    private router: Router,
-    private notificaciones: NotificacionesService
+    private router: Router
   ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token: string = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     let request = req;
     request = req.clone({
       setHeaders: {
@@ -36,7 +33,7 @@ export class AuthInterceptorService implements HttpInterceptor {
           localStorage.removeItem('token');
           localStorage.removeItem('user');
           this.router.navigateByUrl('/login');
-          this.notificaciones.mostrarNotificacionSimple('La sesión ha expirado, inicie sesión nuevamente.');
+          alert('La sesión ha expirado, inicie sesión nuevamente.');
         }
         return throwError( err );
       })

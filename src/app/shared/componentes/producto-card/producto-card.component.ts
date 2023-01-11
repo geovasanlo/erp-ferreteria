@@ -10,6 +10,7 @@ export class ProductoCardComponent implements OnInit {
 
   @Input() producto: Producto;
   @Output() eliminar = new EventEmitter<Producto>();
+  @Output() editar = new EventEmitter<Producto>();
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class ProductoCardComponent implements OnInit {
 
   eliminarF() {
     this.eliminar.emit(this.producto);
+  }
+
+  editarF() {
+    this.editar.emit(this.producto);
   }
 
 }
